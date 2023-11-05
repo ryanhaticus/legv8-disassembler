@@ -1,0 +1,5 @@
+*.o
+disasm
+reference/
+.vscode/
+.DS_Store
