@@ -111,10 +111,6 @@ int main(int argc, char *argv[]) {
     }
   }
 
-  // Open file stream to the disassembled binary
-  std::ofstream legv8asm("./" + fileName + ".legv8asm",
-                         std::ios::out | std::ios::trunc);
-
   // Prepare to iterate through the stream of decoded instructions
   std::string line;
   legv8asm_no_labels.seekg(0, std::ios::beg);
@@ -123,15 +119,12 @@ int main(int argc, char *argv[]) {
   for (int PC = 0; std::getline(legv8asm_no_labels, line); PC++) {
     // If a label exists pointing to this instruction, add the respective label
     if (labelMap.count(PC)) {
-      legv8asm << labelMap[PC] << ":" << std::endl;
+      std::cout << labelMap[PC] << ":" << std::endl;
     }
 
-    // Add the instruction to the disassembled binary
-    legv8asm << line << std::endl;
+    // Print instruction to standard output
+    std::cout << line << std::endl;
   }
-
-  // Close the file stream to the disassembled binary
-  legv8asm.close();
 
   return 0;
 }
