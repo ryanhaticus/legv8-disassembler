@@ -60,8 +60,7 @@ Per course guidelines, the project ships with a `build.sh` and `run.sh` - these 
 
 To build the project, simply run `./build.sh`. You must have `make` and `g++` installed ahead of time. You will see the executable `disasm` generated. You may execute this binary directly, or use the provided `run.sh` script.
 
-Next, to disassemble a binary, run `./run.sh <path-to-binary>`. The disassembled output will be written to `<path-to-binary>.legv8asm`. For example, if you run `./run.sh test.bin`, the output will be written to `test.bin.legv8asm`.
-
+Next, to disassemble a binary, run `./run.sh <path-to-binary>`. The disassembled output will be written to standard output.
 ## Considerations
 
 When originally approaching this project, I had wanted to use a more object-oriented approach. However, I quickly realized it'd be rather burdensome to ensure I was shifting out values and storing them in class members correctly.
